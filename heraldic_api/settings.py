@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
+from django.core.management.utils import get_random_secret_key
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,14 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-84oeg!g(q3(hc_i7g-b+f(hpj#rs(m(q)s--016)sjrjl4+tw('
+#SECRET_KEY = 'django-insecure-84oeg!g(q3(hc_i7g-b+f(hpj#rs(m(q)s--016)sjrjl4+tw('
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,10 +80,10 @@ WSGI_APPLICATION = 'heraldic_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heraldic',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'NAME': 'gohappco_heraldic_library',
+        'USER': 'gohappco_api',
+        'PASSWORD': 'zs7+8trXI818',
+        'HOST': 'cpanel6.webworld.ie',
         'PORT': '3306',    }
 }
 
