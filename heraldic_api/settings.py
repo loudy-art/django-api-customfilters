@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 #ALLOWED_HOSTS = os.getenv("104.16.244.78", "127.0.0.1,localhost").split(",")
-ALLOWED_HOSTS = os.getenv("104.16.244.78", "heraldiclibrary.com", "127.0.0.1", "localhost")
+ALLOWED_HOSTS = ["104.16.244.78", "heraldiclibrary.com", "127.0.0.1", "localhost"]
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 # Application definition
 
