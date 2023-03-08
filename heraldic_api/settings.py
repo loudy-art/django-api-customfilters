@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'gohappco_heraldic_library',
         'USER': 'gohappco_api',
         'PASSWORD': 'zs7+8trXI818',
-        'HOST': 'cpanel6.webworld.ie',
+        'HOST': '217.115.113.32',
         'PORT': '3306',    }
 }
 
